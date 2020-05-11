@@ -1,0 +1,134 @@
+@font-face {
+  font-family: 'GothamBook';
+  src: url('fonts/GothamBook.eot');
+  src: url('fonts/GothamBook.eot') format('embedded-opentype'),
+    url('fonts/GothamBook.woff2') format('woff2'),
+    url('fonts/GothamBook.woff') format('woff'),
+    url('fonts/GothamBook.ttf') format('truetype'),
+    url('fonts/GothamBook.svg#GothamBook') format('svg');
+}
+
+$background:#f2f2f2;
+$formbackground: #ffffff;
+$formshadow: #f2f2f2;
+$h2font: #a0a0a0;
+$emailfont: #727272;
+$hoverselected: #4eb1df;
+$checkedborder: #cdcdcd;
+$button: #ffffff;
+
+@mixin font() {
+  font-family: 'GothamBook';
+}
+
+@mixin h1() {
+  @include font;
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+@mixin h2() {
+  @include font;
+  font-weight: normal;
+  font-size: 16px;
+  color: $h2font;
+}
+
+@mixin center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#logo {
+  max-width: 100px;
+  line-height: 250%;
+}
+
+body {
+  text-align: left;
+  background-color: $background;
+}
+
+form {
+  @include center;
+  @include font;
+  width: 30%;
+  min-width: 200px;
+  border-radius: 10px;
+  padding: 50px 30px;
+  overflow: hidden;
+  box-shadow: 3px 3px 5px $formshadow;
+  background-color: $formbackground;
+}
+
+h1 {
+  @include h1;
+  line-height: 100%;
+}
+
+h2 {
+  @include h2;
+}
+
+#emailAddress {
+  font-size: 14px;
+  line-height: 200%;
+  color: $emailfont;
+}
+
+#email {
+  @include font;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid #dddddd;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+#remember {
+  vertical-align: middle;
+}
+
+#rememberThisDevice {
+  line-height: 300%;
+  vertical-align: middle;
+  padding-left: 8px;
+  font-size: 12px;
+}
+
+button {
+  @include font;
+  display: inline-block;
+  padding: 12px 30px;
+  border: 1px solid $checkedborder;
+  border-radius: 10px;
+  background-color: $button;
+  cursor: pointer;
+    &:hover {
+      background-color: $hoverselected;
+      color: white;
+  }
+}
+
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  border: 1px solid $checkedborder;
+  border-radius: 4px;
+  appearance: none;
+  outline: 0;
+  cursor: pointer;
+    &:before {
+      content: '';
+   }
+    &:checked {
+      border-color: $hoverselected;
+      background-color: $hoverselected;
+    }
+}
+
+#signIn {
+  padding-top: 30px;
+}
