@@ -94,8 +94,8 @@ h2 {
 #rememberThisDevice {
   line-height: 300%;
   vertical-align: middle;
-  padding-left: 8px;
   font-size: 12px;
+  padding-bottom: 50px;
 }
 
 button {
@@ -127,8 +127,4 @@ input[type="checkbox"] {
       border-color: $hoverselected;
       background-color: $hoverselected;
     }
-}
-
-#signIn {
-  padding-top: 30px;
 }

@@ -1,57 +1,50 @@
-import React, { useState } from "react";
-import FormControl from "react-bootstrap/FormControl";
+import React from "react";
 import Logo from './logo.svg';
-import FormGroup from "react-bootstrap/FormGroup";
-import Button from "react-bootstrap/Button";
 
 export default function Login() {
-    {/* setting up the email */}
-    const [email, setEmail] = useState("");
+    {/* setting up constants */}
+    const [email, setEmail] = React.useState("");
+    const [rememberDevice, setRememberDevice] = React.useState(false);
 
     return (
-        <div className="Login">
-            {/* form beginning */}
-            <form>
+        <form>
+            <div className="Login">
                 <div id="logo">
                     <img src={Logo} alt="Green Logo" />
                 </div>
-
+                {/* setting up the headers */}
                 <h1>Example login screen</h1>
                 <h2>Getting started with Green.</h2>
-                
-                {/* email field */}
-                <FormGroup controlId="email" bsSize="large">
-                    <label id="emailAddress">Email Address</label>
-                    <div><FormControl
-                        autoFocus
-                        type="email"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                    /></div>
-                </FormGroup>
 
-                {/* "remember this device" checkbox */}
-                <FormGroup controlId="rememberCheckbox">
-                    <input type="checkbox"
-                        id="remember"
-                        class="checkbox"
-                        value="remember"
-                    />
-                    <label for="remember"
-                        id="rememberThisDevice">
-                        Remember this device
-                </label>
-                </FormGroup>
+            {/* setting up the email */}
+            <label id="emailAddress">
+                    Email Address
+            <input id="email"
+                    name="email"
+                    type="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    required
+            />
+            </label>
 
-                {/* sign in button */}
-                <div id="signIn">
-                    <Button type="submit">
-                        Sign In
-                    </Button>
-                </div>
-            </form>
-        </div>
+            {/* setting up the checkbox */}
+            <label id="rememberThisDevice">
+                <input id="remember"
+                    name="acceptedTerms"
+                    type="checkbox"
+                    value={rememberDevice}
+                    onChange={e => setRememberDevice(e.target.value)}
+                />
+                    Remember this device
+            </label>
 
-
+            {/* setting up submit button */}
+                <button
+                    type="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
     );
 }
